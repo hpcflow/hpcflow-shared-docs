@@ -1,4 +1,4 @@
-# Configuration file for the Sphinx documentation builder.
+# Configuration file for the Sphinx documentation builder -- Common config content
 
 import copy
 from pathlib import Path
@@ -154,6 +154,13 @@ def copy_all_demo_workflows(app):
     return out
 
 
+# -------- app-specific content START ----------------------------------------------------
+
+from docs.source.config_app import *
+
+# -------- app-specific content END ------------------------------------------------------
+
+
 Path("./reference/_generated").mkdir(exist_ok=True)
 
 # distribution name (i.e. name on PyPI):
@@ -230,7 +237,7 @@ html_theme_options = {
     "switcher": {
         "json_url": switcher_JSON_URL,
         # "url_template": "https://docs.matflow.io/v{version}/",  # TODO: update switcher.json to include this url
-        "version_match": __version__,
+        "version_match": release,
     },
     "navbar_end": ["theme-switcher", "navbar-icon-links", "version-switcher"],
     "use_edit_page_button": True,

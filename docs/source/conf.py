@@ -203,6 +203,7 @@ def prepare_task_schema_action_info(app: BaseApp):
 
 with open("config.jsonc") as fp:
     jsonc_str = fp.read()
+    # Strip out comments denoted by // to leave a valid JSON file
     json_str = re.sub(
         r'\/\/(?=([^"]*"[^"]*")*[^"]*$).*', "", jsonc_str, flags=re.MULTILINE
     )

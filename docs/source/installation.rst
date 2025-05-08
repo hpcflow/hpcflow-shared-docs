@@ -67,6 +67,8 @@
       If you are installing {{ app_name }} on an HPC resource, check that you can connect
       to the internet first. You might need to load a proxy module, for example.
 
+    .. _def_python_versions:
+
     *****************************
     {{ app_name }} Python package
     *****************************

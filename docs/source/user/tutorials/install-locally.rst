@@ -21,8 +21,7 @@ Follow the instructions on the website for your operating system.
 ``python --version``.
 
 Check that your version matches one of the ones supported by {{ app_name }}. 
-You can find the supported versions in the `{{ app_name }} PyPI package description <https://pypi.org/project/{{ dist_name }}/>`_.
-.. TODO: when matflow-new PR #320 is merged this can point to the install page instead of the PyPI package description.
+You can find the supported Python versions in the :ref:`installation instructions <def_python_versions>`_.
 If your version is not supported, you may need to update to a newer version of Python.
 
 Next, you will need to set up a virtual environment to install {{ app_name }} and its dependencies.

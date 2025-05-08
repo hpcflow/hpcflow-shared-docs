@@ -45,10 +45,6 @@ HPC
 
 High-performance computer/computing
 
-HPCFlow
--------
-
-{{ app_description }}
 
 jobscript
 ---------
@@ -69,8 +65,7 @@ Task schema
 This is a template for a task you want to run,
 with definitions of the input and outputs that are expected.
 
-Matflow has many :ref:`built-in task schemas <task_schemas>`, but you may want to
-write your own.
+{{ app_name }} has many :ref:`built-in task schemas <task_schemas>`, but you may want to write your own.
 
 .. _def_workflow:
 
@@ -90,5 +85,5 @@ A workflow template parameterises a workflow,
 providing the required input values for the task schemas of the workflow.
 However, it doesn't actually run the :ref:`workflow <def_workflow>`.
 A workflow template is usually just the list of tasks,
-but can optionally include matflow environment,
+but can optionally include {{ app_name }} environment,
 the :ref:`task schemas <def_task_schema>`, and the :ref:`command files <def_command_files>`.

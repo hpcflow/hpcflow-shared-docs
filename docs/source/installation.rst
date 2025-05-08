@@ -71,6 +71,8 @@
     {{ app_name }} Python package
     *****************************
 
+    {{ app_name }} is compatible with Python versions {{ supported_python }}.
+
     Using pip
     ==========================
 

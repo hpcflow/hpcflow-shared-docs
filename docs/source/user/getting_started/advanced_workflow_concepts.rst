@@ -14,11 +14,11 @@ Requesting resources can be done using a ``resources`` block, either for the who
     any:
       scheduler: sge # Setting the scheduler is not normally needed because a
                      # `default_scheduler` will be set in the config file.
+      shell_args:
+        executable_args: ["--login"]
       scheduler_args:
-        shebang_args: --login
-        options:
+        directives:
           -l: short
-
 
 or at the task level
 
@@ -27,11 +27,11 @@ or at the task level
   - schema: simulate_VE_loading_damask
     resources:
       any:
-      # This will use two cores for input file generators and output file parsers
-      num_cores: 2
+        # This will use two cores for input file generators and output file parsers
+        num_cores: 2
       main:
-      # Use 16 cores for the "main" part of the task (the simulation in this case)
-      num_cores: 16
+        # Use 16 cores for the "main" part of the task (the simulation in this case)
+        num_cores: 16
     inputs:
         ...
 
@@ -72,14 +72,14 @@ Scheduler arguments can be passed like this e.g. to target high memory nodes:
 .. code-block:: yaml
 
     resources:
-    any:
-      num_cores: 10
-      SGE_parallel_env: smp.pe
-      scheduler_args:
-        options:
-          -l: mem512
+      any:
+        num_cores: 10
+        SGE_parallel_env: smp.pe
+        scheduler_args:
+          directives:
+            -l: mem512
 
-Anything specified under `options` is passed directly to the scheduler as a jobscript command (i.e. isn't processed by {{ app_name }} at all).
+Anything specified under `directives` is passed directly to the scheduler as a jobscript command (i.e. isn't processed by {{ app_name }} at all).
 
 If you have set resource options at the top level (for the whole workflow), but would like to "unset" them for a particular task,
 
@@ -90,9 +90,9 @@ you can pass an empty dictionary:
   - schema: simulate_VE_loading_damask
     resources:
       main:
-      num_cores: 16
-      scheduler_args:
-          options: {} # "Clear" any previous options which have been set.
+        num_cores: 16
+        scheduler_args:
+          directives: {} # "Clear" any previous directives which have been set.
     inputs:
 
 

@@ -291,7 +291,7 @@ along with the ``generate_input_file.py`` and ``process_input_file.py`` files.
 Modify the paths to the python scripts under the ``action`` keys to give the full path
 to your files.
 
-You can then run the workflow using ``{{ app_module }} go workflow.yaml``.
+You can then run the workflow using ``{{ app_package_name }} go workflow.yaml``.
 
 .. code-block:: yaml
 

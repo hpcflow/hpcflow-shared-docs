@@ -205,10 +205,6 @@ The ``input_file`` must point to the label of a file in ``command_files``.
         - my_input_2
         script: <<script:/full/path/to/generate_input_file.py>>
 
-An example is given in [advanced_workflow.yaml](advanced_workflow.yaml), along with the alternative code which would be needed
-
-to achieve the same result without an input file generator.
-
 Output file parsers
 ~~~~~~~~~~~~~~~~~~~
 

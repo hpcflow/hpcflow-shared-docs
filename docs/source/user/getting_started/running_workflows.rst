@@ -75,7 +75,7 @@ This directory contains the output of the workflow, including your results files
 
 The directory structure is as follows:
 ```
-workflow_nam_YYYY-MM-DD_timestamp/
+workflow_name_YYYY-MM-DD_timestamp/
 ├── artifacts/
 │   ├── workflow.yaml
 │   ├── submissions/

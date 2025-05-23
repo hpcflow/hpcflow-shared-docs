@@ -71,66 +71,20 @@
     Your {{ app_name }} environments must be defined in your environments (YAML) file before {{ app_name }}
     can run workflows, and this environment file must be pointed to in the config file
     via the ``environment_sources`` key.
-    Once this has been done,
-    your environment file can be be opened using ``{{ app_module }} open env-source``.
+    Once this has been done, your environment file can be be opened using ``{{ app_module }} open env-source``.
 
-    Below is an example environments file that defines environment for some commonly used software.
-    This is not a complete list of all the software that can be used with {{ app_name }},
-    and domain-specific tools can be added to the environments file as required.
-
-    You may wish to use this as a tempalte and modify it for your own computer,
-    in particular the ``setup`` sections for each environment.
+    Below is an example environments file that defines an environment for running Pyton scripts.
+    Domain-specific tools can be added to the environments file as required, each with their own 
+    setup instructions for loading that tool on your machine.
 
     .. code-block:: yaml
 
-	- name: matlab_env
-	  setup: |
-	    module load apps/binapps/matlab/R2019a
-	    module load apps/binapps/matlab/third-party-toolboxes/mtex/5.3
-	  executables:
-
-	    - label: compile_mtex
-	      instances:
-		- command: compile-mtex <<script_name>> <<args>>
-		  num_cores: 1
-		  parallel_mode: null
-
-	    - label: run_compiled_mtex
-	      instances:
-		- command: ./run_<<script_name>>.sh $MATLAB_HOME <<args>>
-		  num_cores: 1
-		  parallel_mode: null
-
-	    - label: run_mtex
-	      instances:
-	      - command: matlab -singleCompThread -batch "<<script_name_no_ext>> <<args>>"
-		num_cores: 1
-		parallel_mode: null
-	      - command: matlab -batch "<<script_name_no_ext>> <<args>>"
-		num_cores:
-		  start: 2
-		  stop: 16
-		parallel_mode: null
-
-	- name: python_env
-	  executables:
-	    - label: python_script
-	      instances:
-		- command: python <<script_name>> <<args>>
-		  num_cores:
-		    start: 1
-		    stop: 32
-		  parallel_mode: null
-
-	- name: dream_3D_env
-	  executables:
-	  - label: dream_3D_runner
-	    instances:
-	    - command: /full/path/to/dream3d/DREAM3D-6.5.171-Linux-x86_64/bin/PipelineRunner
-	      num_cores: 1
-	      parallel_mode: null
-	  - label: python_script
-	    instances:
-	      - command: python <<script_name>> <<args>>
-		num_cores: 1
-		parallel_mode: null
+      - name: python_env
+        executables:
+          - label: python_script
+            instances:
+        - command: python "<<script_path>>" <<args>>
+          num_cores:
+            start: 1
+            stop: 32
+          parallel_mode: null

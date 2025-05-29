@@ -64,7 +64,7 @@ by ``scope`` e.g.
 {{ app_name }} is then looking for a match within your environment definitions for the requested
 resources, and will run the command which matches those resources.
 
-There are lots of :ref:`resource options <reference/_autosummary/matflow.ResourceSpec:matflow.ResourceSpec>`
+There are lots of :ref:`resource options <reference/_autosummary/{{ app_module }}.ResourceSpec:{{ app_module }}.ResourceSpec>`
 available that can be requested.
 
 Scheduler arguments can be passed like this e.g. to target high memory nodes:

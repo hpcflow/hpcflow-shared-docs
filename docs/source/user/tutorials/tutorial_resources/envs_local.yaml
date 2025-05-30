@@ -1,6 +1,6 @@
 name: temp_python_env
   # Any setup steps e.g. loading a module, activating a virtual environment can go here
-  setup: conda activate matflow-env
+  setup: source venv/bin/activate
   # There might be multiple executables in your environment
   # e.g. python, abaqus, etc
   executables:

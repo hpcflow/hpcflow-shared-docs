@@ -8,7 +8,7 @@ template_components:
       default_value: Hello
     actions:
     - commands:
-      - command: echo "<<parameter:greeting>>, <<parameter:name>>!" >> printed_string.txt
+      - command: echo "<<parameter:greeting>>, <<parameter:name>>!" > printed_string.txt
 
   - objective: python_greet
     inputs:
@@ -33,7 +33,7 @@ template_components:
     - parameter: string_to_print
     actions:
     - commands:
-      - command: echo "<<parameter:string_to_print>>" >> printed_string.txt
+      - command: echo "<<parameter:string_to_print>>" > printed_string.txt
 
   # This schema uses the environment `temp_python_env`
   # which loads a python venv.
@@ -53,11 +53,11 @@ tasks:
 - schema: greet
   inputs:
     greeting: What's up
-    name: dumbass
+    name: doc
 - schema: python_greet
   inputs:
-    greeting: Out of the way
-    name: dopey
+    greeting: Howdy
+    name: partner
 - schema: print
 - schema: print
   inputs:
@@ -79,11 +79,11 @@ tasks:
     values:
     - hey
     - see ya later
-    - what's up
+    - in a while
     nesting_order: 0
   - path: inputs.name
     values:
-    - you guys
-    - aligator
-    - doc
+    - you
+    - alligator
+    - crocodile
     nesting_order: 1

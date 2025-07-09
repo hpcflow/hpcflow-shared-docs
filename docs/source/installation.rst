@@ -73,7 +73,7 @@
     via the ``environment_sources`` key.
     Once this has been done, your environment file can be be opened using ``{{ app_module }} open env-source``.
 
-    Below is an example environments file that defines an environment for running Pyton scripts.
+    Below is an example environments file that defines an environment for running Python scripts.
     Domain-specific tools can be added to the environments file as required, each with their own 
     setup instructions for loading that tool on your machine.
 
@@ -88,3 +88,32 @@
             start: 1
             stop: 32
           parallel_mode: null
+
+    Note also that any {{ app_name }} environment which activates a python virtual environment
+    as part of the `setup`,
+    must also have the {{ app_name }} python package installed,
+    and it must be the same version as is used to submit the workflow.
+    In practice, this is most easily achieved by creating one python virtual environment
+    and using it in each of these {{ app_name }} environments and to submit workflows.
+
+    Tips for SLURM
+    **************
+
+    {{ app_name }} currently has a fault such that it doesn't select a SLURM partition
+    based on the resources requested in your workflow file.
+    As such, users must manually define this in their workflow files e.g.
+
+    .. code-block:: yaml
+
+      resources:
+        any:
+          scheduler_args:
+            directives:
+              --time: 00:30:00
+              --partition: serial
+
+    Note also that for many SLURM schedulers, a time limit must also be specified as shown above.
+
+    A `default time limit and partition <https://github.com/hpcflow/matflow-configs/blob/main/manchester-CSF3.yaml#L21-L25>`_
+    can be set in the config file, which will be used for tasks which don't have this set explicitly
+    in a ``resources`` block like the example above.

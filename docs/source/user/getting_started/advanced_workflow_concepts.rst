@@ -12,13 +12,10 @@ Requesting resources can be done using a ``resources`` block, either for the who
 
     resources:
     any:
-      scheduler: sge # Setting the scheduler is not normally needed because a
-                     # `default_scheduler` will be set in the config file.
-      shell_args:
-        executable_args: ["--login"]
       scheduler_args:
         directives:
-          -l: short
+          --time: 1:00:00
+          --partition: multicore
 
 or at the task level
 
@@ -67,22 +64,20 @@ resources, and will run the command which matches those resources.
 There are lots of :ref:`resource options <reference/_autosummary/{{ app_module }}.ResourceSpec:{{ app_module }}.ResourceSpec>`
 available that can be requested.
 
-Scheduler arguments can be passed like this e.g. to target high memory nodes:
+Scheduler arguments can be passed like this e.g. to set a time limit of 1 hour
 
 .. code-block:: yaml
 
     resources:
-      any:
-        num_cores: 10
-        SGE_parallel_env: smp.pe
-        scheduler_args:
-          directives:
-            -l: mem512
+    any:
+      scheduler_args:
+        directives:
+          --time: 1:00:00
+      num_cores: 10
 
 Anything specified under `directives` is passed directly to the scheduler as a jobscript command (i.e. isn't processed by {{ app_name }} at all).
 
 If you have set resource options at the top level (for the whole workflow), but would like to "unset" them for a particular task,
-
 you can pass an empty dictionary:
 
 .. code-block:: yaml
@@ -93,7 +88,6 @@ you can pass an empty dictionary:
         num_cores: 16
         scheduler_args:
           directives: {} # "Clear" any previous directives which have been set.
-    inputs:
 
 
 Task sequences

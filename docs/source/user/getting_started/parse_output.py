@@ -1,6 +1,5 @@
 import json
 
-
 def parse_output(my_input_file: str, processed_file: str):
     """Do some post-processing of data files.
 

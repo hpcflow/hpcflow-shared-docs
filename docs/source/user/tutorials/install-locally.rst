@@ -21,7 +21,7 @@
   ``python --version``.
 
   Check that your version matches one of the ones supported by {{ app_name }}.
-  You can find the supported Python versions in the :ref:`installation instructions <def_python_versions>`_.
+  You can find the supported Python versions in the :ref:`installation instructions <def_python_versions>`.
   If your version is not supported, you may need to update to a newer version of Python.
 
   Next, you will need to set up a virtual environment to install {{ app_name }} and its dependencies.
@@ -65,7 +65,7 @@
   Step 4: Define workflow
   ========================
 
-  Now that you have installed {{ app_name }} and set up the configuration file, you can start defining :ref:`workflows <def_workflow>`_.
+  Now that you have installed {{ app_name }} and set up the configuration file, you can start defining :ref:`workflows def_workflow>`.
   {{ app_name }} uses a YAML file to define the workflow, which is a text file that describes the steps in the workflow and the parameters for each step.
   The workflow file is stored in the directory where you want to run the workflow.
 

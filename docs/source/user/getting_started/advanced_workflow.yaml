@@ -1,6 +1,6 @@
 template_components:
   task_schemas:
-  - objective: process_some_data
+  - objective: process_data
     inputs:
     - parameter: input_data
     outputs:
@@ -10,13 +10,13 @@ template_components:
       - input_file: my_input_file
         from_inputs:
         - input_data
-        script: <<script:/path/to/generate_input_file.py>>
+        script: <<script:/full/path/to/generate_input_file.py>>
       environments:
       - scope:
           type: any
         environment: python_env
       script_exe: python_script
-      script: <<script:/path/to/process_input_file.py>>
+      script: <<script:/full/path/to/process_input_file.py>>
       save_files:
       - processed_file
       output_file_parsers:
@@ -24,7 +24,7 @@ template_components:
           from_files:
           - my_input_file
           - processed_file
-          script: <<script:/path/to/parse_output.py>>
+          script: <<script:/full/path/to/parse_output.py>>
           save_files:
             - parsed_output
 
@@ -33,16 +33,17 @@ template_components:
     - parameter: input_data
     - parameter: path
     actions:
-    - script: <<script:/path/to/generate_input_file.py>>
+    - script: <<script:/full/path/to/generate_input_file.py>>
       script_data_in: direct
       script_exe: python_script
-      save_files: 
+      save_files:
       - my_input_file
       environments:
       - scope:
           type: any
         environment: python_env
-    - script: <<script:/path/to/process_input_file.py>>
+      requires_dir: true
+    - script: <<script:/full/path/to/process_input_file.py>>
       script_exe: python_script
       environments:
       - scope:
@@ -50,6 +51,7 @@ template_components:
         environment: python_env
       save_files:
       - processed_file
+      requires_dir: true
 
   command_files:
   - label: my_input_file
@@ -64,7 +66,7 @@ template_components:
 
 
 tasks:
-- schema: process_some_data
+- schema: process_data
   inputs:
     input_data: [1, 2, 3, 4]
 - schema: process_data_without_input_file_generator

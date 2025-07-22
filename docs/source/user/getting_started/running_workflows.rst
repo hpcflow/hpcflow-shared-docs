@@ -2,7 +2,7 @@
 
 Demo workflows
 ----------------
-A good way to get started with {{ app_name }} is to run a built-in demo workflows.
+A good way to get started with {{ app_name }} is to run one of the built-in demo workflows.
 This will also test your installation, configuration, and some of your environments.
 
 Submit a workflow

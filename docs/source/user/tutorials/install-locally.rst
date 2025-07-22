@@ -1,8 +1,8 @@
 .. jinja:: first_ctx
 
-  ################################################
+  ######################################################
   Tutorial: Install {{ app_name }} on your local machine
-  ################################################
+  ######################################################
 
   This tutorial will guide you through the process of installing {{ app_name }} on your local machine (laptop or desktop), creating and running some example workflows.
   This tutorial is intended for users who are new to {{ app_name }} and want to understand the setup and terminology.
@@ -39,7 +39,7 @@
   This will print out the path to the Python executable it is calling, so currently the path should be inside the virtual environment folder you just created.
 
   Step 2: Install {{ app_name }}
-  =======================
+  ==============================
 
   Once you have created and activated a Python environment (check for the environment name in brackets in your prompt), you can install {{ app_name }} using pip by running
   ``pip install {{ dist_name }}``.
@@ -52,7 +52,7 @@
   If you see an error message saying it doesn't recognise "{{ app_module }}" as a command name, check that you have activated the correct virtual environment and that you have installed {{ app_name }} correctly.
 
   Step 3: Configure {{ app_name }} for your machine
-  ========================================
+  =================================================
 
   Now that you have installed {{ app_name }}, you need to set it up for your machine.
   {{ app_name }} uses a configuration file to store information about the machine you are running on, such as the number of cores available and the locations of important folders.

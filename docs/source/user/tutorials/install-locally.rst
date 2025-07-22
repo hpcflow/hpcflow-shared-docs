@@ -60,7 +60,7 @@
 
   The configuration file is called ``config.yaml`` and is stored in the ``~/.{{ app_module }}-new`` directory (``~`` is a shortcut for your user home directory, and the ``.`` at the start of the filename indicates that this is a hidden folder).
   When you first install {{ app_name }}, the directory and file will not exist.
-  You can either make it yourself or run ``{{ app_module }} init`` to create the ``~/.{{ app_module }}-new`` directory and a ``config.yml`` file inside it with the minimum default settings.
+  You can either make it yourself or run ``{{ app_module }} init`` to create the ``~/.{{ app_module }}-new`` directory and a ``config.yaml`` file inside it with the minimum default settings.
 
   Step 4: Define workflow
   ========================

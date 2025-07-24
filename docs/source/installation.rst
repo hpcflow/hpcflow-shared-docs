@@ -23,7 +23,7 @@
     The CLI and the Python package can be used simultaneously.
 
     Using pip
-    ==========================
+    *********
 
     The recommended way to install {{ app_name }} is to
     use pip to install the Python package from PyPI::
@@ -32,15 +32,15 @@
 
     This installs the python package, which also gives the CLI version of {{ app_name }}.
 
-    *************
     Release notes
-    *************
+    ===============
 
     Release notes for this version ({{app_version}}) are `available on GitHub <https://github.com/{{ github_user }}/{{ github_repo }}/releases/tag/v{{ app_version }}>`_.
     Use the version switcher in the top-right corner of the page to download/install other versions.
 
     Alternative installation methods
-    ================================
+    *********************************
+
     Although *not currently recommended*,
     advanced users may wish to use one of the :ref:`alternative installation methods <alternative_install>`.
 
